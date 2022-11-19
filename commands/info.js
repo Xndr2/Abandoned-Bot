@@ -11,7 +11,7 @@ module.exports = {
     async execute(interaction, client) {
 
         const InfoEmbed = new MessageEmbed()
-            .setColor('PURPLE')
+            .setColor('BLURPLE')
             .setTitle("Information about the bot.")
             .setThumbnail("https://cdn.discordapp.com/attachments/881195253992947773/989895227831627776/TFL_logo_Standard.png")
             .setDescription("This bot is made by Xndr for [TFL](https://discord.gg/E6Wv4jpHHj) and is used for entertainment purposes only.")

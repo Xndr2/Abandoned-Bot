@@ -9,7 +9,7 @@ module.exports = {
             
     async execute (interaction) {
         const HelpEmbed = new MessageEmbed()
-            .setColor('PURPLE')
+            .setColor('WHITE')
             .setTitle("List of all Commands.")
             .setDescription("")
             .addField("/help", "Gives you all possible commands.")

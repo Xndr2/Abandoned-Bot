@@ -40,7 +40,7 @@ module.exports = {
         //await interaction.reply(randomMessage);
 
         const DecideEmbed = new MessageEmbed()
-            .setColor('PURPLE')
+            .setColor('NOT_QUITE_BLACK')
             .setTitle(string+"  :eyes:")
             .setDescription(randomMessage)
             .setTimestamp()

@@ -19,7 +19,7 @@ module.exports = {
             {
                 const textString = interaction.options.getString('question')
                 const QOTDEmbed = new MessageEmbed()
-                .setColor("GOLD")
+                .setColor('GOLD')
                 .setTitle(textString)
                 .setDescription("Answer in thread below. :arrow_heading_down:")
                 .setTimestamp()

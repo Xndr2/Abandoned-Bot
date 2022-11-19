@@ -14,7 +14,7 @@ module.exports = {
         const owner = await guild.fetchOwner();
 
         const ServerInfoEmbed = new MessageEmbed()
-            .setColor('PURPLE')
+            .setColor('DARK_PURPLE')
             .setTitle("Information about this server.")
             .setThumbnail(`${guild.iconURL()}`)
             .setDescription("This bot is made by Xndr for [TFL](https://discord.gg/E6Wv4jpHHj) and is used for entertainment purposes only.")

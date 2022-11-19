@@ -13,7 +13,7 @@ module.exports = {
         ("http://meme-api.herokuapp.com/gimme/memes").then(res => res.json())
 
         const MemeEmbed = new MessageEmbed()
-            .setColor('PURPLE')
+            .setColor('RANDOM')
             .setTitle(data.title)
             .setURL(data.postLink)
             .setImage(data.url)
