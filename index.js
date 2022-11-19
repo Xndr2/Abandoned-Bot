@@ -7,6 +7,7 @@ const {MessageEmbed, Client, Intents, Collection, Interaction, Guild} = require(
 const { Search } = require("youtube-search");
 const { Console } = require("console");
 const internal = require("stream");
+const { execute } = require("./commands/cat");
 const client = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
@@ -81,33 +82,43 @@ client.on('interactionCreate', async interaction => {
         } catch (err) {
             if(err) console.error(err); //if valid error
             const ErrorEmbed = new MessageEmbed()
-            .setColor('RED')
-            .setTitle("ERROR")
-            .setDescription("An error has accured while executing command. Please contact <@434760513377927188> with a screenshot.")
-            .addField("error code", `${err}`)
-            .setTimestamp()
-            .setFooter({text: "Error Triggered"});
+                .setColor('RED')
+                .setTitle(":warning: An error has accured while executing interaction. :warning:")
+                .setDescription("Please contact <@434760513377927188> with a screenshot.")
+                .addField("error code:", `${err}`)
+                .setTimestamp()
+                .setFooter({text: "Error Triggered!"});
             await interaction.reply({ embeds: [ErrorEmbed], ephemeral: true });
         }
     }
     
     if(interaction.isButton()){ //make sure interaction is valid button
-        if(interaction.customId === 'memebutton') //make sure button is meme button
-        {
-            const command = client.commands.get("meme");
-            if(!command) return;
-            try {
-                await command.execute(interaction, client); //execute meme command
+        try {
+            if(interaction.customId === 'memebutton') // if button is the meme button
+            {
+                const command = client.commands.get("meme"); // get the meme command
+                if(!command) return;
+                await command.execute(interaction, client); //execute meme command again
             }
-            catch (err) {
-                if(err) console.error(err); //if valid error
+            else if(interaction.customId === "catbutton") // if button is the cat button
+            {
+                const command = client.commands.get("cat"); // ...
+                if(!command) return;
+                await command.execute(interaction, client);
+            }
+        }
+        catch (err) {
+            if(err) //if valid error
+            {
+                console.error(err);
+                // error embed
                 const ErrorEmbed = new MessageEmbed()
-                .setColor('RED')
-                .setTitle("ERROR")
-                .setDescription("An error has accured while executing interaction. Please contact <@434760513377927188> with a screenshot.")
-                .addField("error code", `${err}`)
-                .setTimestamp()
-                .setFooter({text: "Error Triggered"});
+                    .setColor('RED')
+                    .setTitle(":warning: An error has accured while executing interaction. :warning:")
+                    .setDescription("Please contact <@434760513377927188> with a screenshot.")
+                    .addField("error code:", `${err}`)
+                    .setTimestamp()
+                    .setFooter({text: "Error Triggered!"});
                 await interaction.reply({ embeds: [ErrorEmbed], ephemeral: true });
             }
         }
