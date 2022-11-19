@@ -12,7 +12,7 @@ module.exports = {
         let data = await fetch
         ("http://meme-api.herokuapp.com/gimme/cats").then(res => res.json())
 
-        const MemeEmbed = new MessageEmbed()
+        const CatEmbed = new MessageEmbed()
             .setColor('PURPLE')
             .setTitle(data.title)
             .setURL(data.postLink)
@@ -21,15 +21,15 @@ module.exports = {
             .setTimestamp()
             .setFooter({text: "Cat command."});
 
-        const row = new MessageActionRow()
+        const button = new MessageActionRow()
         .addComponents(
             new MessageButton()
                 .setCustomId('catbutton')
                 .setLabel('I want another one')
-                .setStyle('PRIMARY'),
+                .setStyle('SUCCESS'),
         );
         
-        await interaction.reply({ embeds: [MemeEmbed], components: [row]});
+        await interaction.reply({ embeds: [CatEmbed], components: [button]});
 
         //log into file
         const content = '\ncat command executed by '+ interaction.member.user.username + ' at ' + new Date().toLocaleString();

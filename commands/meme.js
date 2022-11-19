@@ -26,7 +26,7 @@ module.exports = {
             new MessageButton()
                 .setCustomId('memebutton')
                 .setLabel('New Meme')
-                .setStyle('PRIMARY'),
+                .setStyle('SUCCESS'),
         );
         
         await interaction.reply({ embeds: [MemeEmbed], components: [row]});
