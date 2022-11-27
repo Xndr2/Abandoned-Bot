@@ -6,7 +6,8 @@ const fs = require('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("meme")
-        .setDescription("gets a meme from /r/memes on reddit."),
+        .setDescription("gets a meme from /r/memes on reddit.")
+        .setDMPermission(false),
 
     async execute(interaction) {
         let data = await fetch

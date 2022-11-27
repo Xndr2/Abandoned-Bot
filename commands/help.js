@@ -5,7 +5,8 @@ const fs = require('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("help")
-        .setDescription("Help command"),
+        .setDescription("Help command")
+        .setDMPermission(false),
             
     async execute (interaction) {
         const HelpEmbed = new MessageEmbed()

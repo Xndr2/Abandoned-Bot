@@ -17,7 +17,8 @@ module.exports = {
             option.setName('song')
                 .setDescription('Give the song name.')
                 .setRequired(true))
-        ),
+        )
+        .setDMPermission(false),
 
     async execute(interaction, client) {
         if(interaction.member.roles.cache.has('880832571255181322') || interaction.member.roles.cache.has('936990096295591978') || process.env.NEED_PERMISSION == "false") //check if user has the management role

@@ -6,7 +6,8 @@ const fs = require('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("info")
-        .setDescription("Gives you information about the bot."),
+        .setDescription("Gives you information about the bot.")
+        .setDMPermission(false),
 
     async execute(interaction, client) {
 

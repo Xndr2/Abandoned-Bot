@@ -5,7 +5,8 @@ const fs = require('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("ping")
-        .setDescription("reply with pong"),
+        .setDescription("reply with pong")
+        .setDMPermission(false),
 
     async execute(interaction, client) {
             await interaction.reply({ content: `PONG: 🏓Latency is ${Date.now() - interaction.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms` })

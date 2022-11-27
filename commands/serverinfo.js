@@ -6,7 +6,8 @@ const fs = require('fs');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("serverinfo")
-        .setDescription("Gives you information about the server."),
+        .setDescription("Gives you information about the server.")
+        .setDMPermission(false),
 
     async execute(interaction, client) {
         const guild = interaction.guild;

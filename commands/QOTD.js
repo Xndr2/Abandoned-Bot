@@ -10,8 +10,8 @@ module.exports = {
             option.setName('question')
                 .setDescription('Give the Question')
                 .setRequired(true))
-        ),
-
+        )
+        .setDMPermission(false),
     async execute(interaction) {
         if(interaction.member.roles.cache.has('880832571255181322') || interaction.member.roles.cache.has('936990096295591978') || process.env.NEED_PERMISSION == "false") //check if user has the management or comdir role
         {

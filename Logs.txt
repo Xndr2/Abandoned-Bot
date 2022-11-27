@@ -1,0 +1,74 @@
+
+
+Bot started at 11/19/2022, 11:08:19 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:08:21 PM
+cat command executed by Xndr at 11/19/2022, 11:08:30 PM
+
+Bot started at 11/19/2022, 11:16:00 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:16:01 PM
+cat command executed by Xndr at 11/19/2022, 11:16:10 PM
+cat command executed by Xndr at 11/19/2022, 11:16:12 PM
+cat command executed by Xndr at 11/19/2022, 11:16:15 PM
+
+Bot started at 11/19/2022, 11:22:16 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:22:17 PM
+cat command executed by Xndr at 11/19/2022, 11:22:25 PM
+
+Bot started at 11/19/2022, 11:23:02 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:23:03 PM
+
+Bot started at 11/19/2022, 11:28:01 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:28:02 PM
+cat command executed by Xndr at 11/19/2022, 11:28:06 PM
+
+Bot started at 11/19/2022, 11:32:21 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:32:22 PM
+meme command executed by Xndr at 11/19/2022, 11:32:28 PM
+meme command executed by Xndr at 11/19/2022, 11:32:33 PM
+
+Bot started at 11/19/2022, 11:32:57 PM
+set status to watching
+Succesfully registered commands locally. 11/19/2022, 11:32:57 PM
+cat command executed by Xndr at 11/19/2022, 11:33:03 PM
+cat command executed by Xndr at 11/19/2022, 11:34:13 PM
+cat command executed by Xndr at 11/19/2022, 11:34:15 PM
+decide command executed by Xndr at 11/19/2022, 11:34:28 PM
+meme command executed by Xndr at 11/19/2022, 11:34:38 PM
+meme command executed by Xndr at 11/19/2022, 11:34:41 PM
+QOTD command executed by Xndr at 11/19/2022, 11:37:56 PM
+info command executed by Xndr at 11/19/2022, 11:38:22 PM
+serverinfo command executed by Xndr at 11/19/2022, 11:38:25 PM
+
+Bot started at 11/20/2022, 3:57:48 PM
+
+Bot started at 11/20/2022, 3:58:09 PM
+
+Bot started at 11/20/2022, 3:58:35 PM
+set status to watching
+Succesfully registered commands locally. 11/20/2022, 3:58:38 PM
+cat command executed by Xndr at 11/20/2022, 3:59:01 PM
+cat command executed by Xndr at 11/20/2022, 3:59:10 PM
+cat command executed by Xndr at 11/20/2022, 3:59:17 PM
+
+Bot started at 11/20/2022, 4:01:03 PM
+set status to watching
+Succesfully registered commands locally. 11/20/2022, 4:01:11 PM
+cat command executed by Xndr at 11/20/2022, 4:01:17 PM
+meme command executed by Xndr at 11/20/2022, 4:01:24 PM
+meme command executed by Xndr at 11/20/2022, 4:01:41 PM
+
+Bot started at 11/27/2022, 1:39:48 PM
+set status to watching
+Succesfully registered commands locally. 11/27/2022, 1:39:49 PM
+QOTD command executed by Xndr at 11/27/2022, 1:40:04 PM
+
+Bot started at 11/27/2022, 1:40:36 PM
+set status to watching
+Succesfully registered commands globally. 11/27/2022, 1:40:38 PM
+Jef command executed by Xndr at 11/27/2022, 1:41:04 PM

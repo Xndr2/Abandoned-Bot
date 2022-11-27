@@ -10,7 +10,8 @@ module.exports = {
             option.setName('input')
                 .setDescription('Give an argument')
                 .setRequired(true))
-        ),
+        )
+        .setDMPermission(false),
             
     async execute (interaction) {
         const string = interaction.options.getString('input');
