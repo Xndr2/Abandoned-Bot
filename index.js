@@ -3,7 +3,7 @@ require("dotenv").config();
 const fs = require("fs");
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
-const {MessageEmbed, Client, Intents, Collection, Interaction, Guild} = require("discord.js");
+const {MessageEmbed, Client, Intents, Collection, Interaction, Guild, Collector} = require("discord.js");
 const { Search } = require("youtube-search");
 const { Console } = require("console");
 const internal = require("stream");
@@ -28,6 +28,10 @@ for(const file of commandFiles){
     commands.push(command.data.toJSON()); //add command to array and to collection
     client.commands.set(command.data.name, command);
 }
+
+// create cooldown for commands
+client.cooldowns = new Collection();
+client.COOLDOWN_SECONDS = 10;
 
 // when ready
 client.on('ready', () => {

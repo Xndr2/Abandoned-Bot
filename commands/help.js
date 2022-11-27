@@ -8,24 +8,39 @@ module.exports = {
         .setDescription("Help command")
         .setDMPermission(false),
             
-    async execute (interaction) {
-        const HelpEmbed = new MessageEmbed()
-            .setColor('WHITE')
-            .setTitle("List of all Commands.")
-            .setDescription("")
-            .addField("/help", "Gives you all possible commands.")
-            .addField("/decide [input]", "Give you an awnser to you hardest question.")
-            .addField("/ping", "replies with pong and the API latency.")
-            .addField("/meme", "Gets a meme from /r/memes on reddit.")
-            .addField("/info", "Gives you information about the bot.")
-            .addField("/serverinfo", "Gives you information about the server.")
-            .addField("/QOTD [input] (Mod Only)", "Allows you to make the question of the day.")
-            .addField("/SOTD [input or yt link] (Mod Only)", "Allows you to make the song of the day.")
-            .setTimestamp()
-            .setFooter({text: "Help command."})
+    async execute (interaction, client) {
+        if(client.cooldowns.has(interaction.user.id))
+        {
+            interaction.reply({ content: "Please wait for the cooldown to end!", ephemeral: true});
+        }
+        else
+        {
+            const HelpEmbed = new MessageEmbed()
+                .setColor('WHITE')
+                .setTitle("List of all Commands.")
+                .setDescription("All commands are logged! Don't abuse them!")
+                .addField("/help", "Gives you all possible commands.")
+                .addField("/decide [input]", "Give you an awnser to you hardest question.")
+                .addField("/ping", "replies with pong and the API latency.")
+                .addField("/meme", "Gets a meme from /r/memes on reddit.")
+                .addField("/cat", "get a cool cat pic from /r/cats.")
+                .addField("/info", "Gives you information about the bot.")
+                .addField("/serverinfo", "Gives you information about the server.")
+                .addField("/QOTD [input] (Mod Only)", "Allows you to make the question of the day.")
+                .addField("/SOTD [input or yt link] (Mod Only)", "Allows you to make the song of the day.")
+                .setTimestamp()
+                .setFooter({text: "Help command."})
         
         
-        await interaction.reply({ embeds: [HelpEmbed] });
+            await interaction.reply({ embeds: [HelpEmbed] });
+
+            // set cooldown
+            client.cooldowns.set(interaction.user.id, true);
+            setTimeout(() => {
+                client.cooldowns.delete(interaction.user.id); //clear cooldown
+            }, client.COOLDOWN_SECONDS * 1000); // after ... seconds
+        }
+        
 
         //log into file
         const content = '\nhelp command executed by '+ interaction.member.user.username + ' at ' + new Date().toLocaleString();

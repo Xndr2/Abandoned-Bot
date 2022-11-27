@@ -9,28 +9,41 @@ module.exports = {
         .setDescription("gets a meme from /r/memes on reddit.")
         .setDMPermission(false),
 
-    async execute(interaction) {
-        let data = await fetch
-        ("http://meme-api.herokuapp.com/gimme/memes").then(res => res.json())
+    async execute(interaction, client) {
+        if(client.cooldowns.has(interaction.user.id))
+        {
+            interaction.reply({ content: "Please wait for the cooldown to end!", ephemeral: true});
+        }
+        else
+        {
+            let data = await fetch
+            ("http://meme-api.herokuapp.com/gimme/memes").then(res => res.json())
 
-        const MemeEmbed = new MessageEmbed()
-            .setColor('RANDOM')
-            .setTitle(data.title)
-            .setURL(data.postLink)
-            .setImage(data.url)
-            .setDescription(data.ups+" Upvotes | by "+data.author)
-            .setTimestamp()
-            .setFooter({text: "Meme command."});
+            const MemeEmbed = new MessageEmbed()
+                .setColor('RANDOM')
+                .setTitle(data.title)
+                .setURL(data.postLink)
+                .setImage(data.url)
+                .setDescription(data.ups+" Upvotes | by "+data.author)
+                .setTimestamp()
+                .setFooter({text: "Meme command."});
 
-        const row = new MessageActionRow()
-        .addComponents(
-            new MessageButton()
-                .setCustomId('memebutton')
-                .setLabel('New Meme')
-                .setStyle('SUCCESS'),
-        );
-        
-        await interaction.reply({ embeds: [MemeEmbed], components: [row]});
+            const row = new MessageActionRow()
+            .addComponents(
+                new MessageButton()
+                    .setCustomId('memebutton')
+                    .setLabel('New Meme')
+                    .setStyle('SUCCESS'),
+            );
+            
+            await interaction.reply({ embeds: [MemeEmbed], components: [row]});
+
+            // set cooldown
+            client.cooldowns.set(interaction.user.id, true);
+            setTimeout(() => {
+                client.cooldowns.delete(interaction.user.id); //clear cooldown
+            }, client.COOLDOWN_SECONDS * 1000); // after ... seconds
+        }
 
         //log into file
         const content = '\nmeme command executed by '+ interaction.member.user.username + ' at ' + new Date().toLocaleString();

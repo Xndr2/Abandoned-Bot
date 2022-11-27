@@ -10,27 +10,42 @@ module.exports = {
         .setDMPermission(false),
 
     async execute(interaction, client) {
-        const guild = interaction.guild;
-        const memberCount = guild.members.cache.size;
-        const owner = await guild.fetchOwner();
+        if(client.cooldowns.has(interaction.user.id))
+        {
+            interaction.reply({ content: "Please wait for the cooldown to end!", ephemeral: true});
+        }
+        else
+        {
+            const guild = interaction.guild;
+            const memberCount = guild.members.cache.size;
+            const owner = await guild.fetchOwner();
 
-        const ServerInfoEmbed = new MessageEmbed()
-            .setColor('DARK_PURPLE')
-            .setTitle("Information about this server.")
-            .setThumbnail(`${guild.iconURL()}`)
-            .setDescription("This bot is made by Xndr for [TFL](https://discord.gg/E6Wv4jpHHj) and is used for entertainment purposes only.")
-            .addField("Server ID", `${guild.id}`)
-            .addField("Server Name", `${guild.name}`)
-            .addField("Server Owner", `${owner}`)
-            .addField("Server Created", `${guild.createdAt}`)
-            .addField("Users in this server", `${memberCount}`)
-            .addField("Channels in this server", `${guild.channels.cache.size}`)
-            .addField("Roles in this server", `${guild.roles.cache.size}`)
-            .addField("Server Icon URL", `${guild.iconURL()}`)
-            .setTimestamp()
-            .setFooter({text: "Server info command."});
+            const ServerInfoEmbed = new MessageEmbed()
+                .setColor('DARK_PURPLE')
+                .setTitle("Information about this server.")
+                .setThumbnail(`${guild.iconURL()}`)
+                .setDescription("This bot is made by Xndr for [TFL](https://discord.gg/E6Wv4jpHHj) and is used for entertainment purposes only.")
+                .addField("Server ID", `${guild.id}`)
+                .addField("Server Name", `${guild.name}`)
+                .addField("Server Owner", `${owner}`)
+                .addField("Server Created", `${guild.createdAt}`)
+                .addField("Users in this server", `${memberCount}`)
+                .addField("Channels in this server", `${guild.channels.cache.size}`)
+                .addField("Roles in this server", `${guild.roles.cache.size}`)
+                .addField("Server Icon URL", `${guild.iconURL()}`)
+                .setTimestamp()
+                .setFooter({text: "Server info command."});
+            
+            await interaction.reply({ embeds: [ServerInfoEmbed]});
+
+            // set cooldown
+            client.cooldowns.set(interaction.user.id, true);
+            setTimeout(() => {
+                client.cooldowns.delete(interaction.user.id); //clear cooldown
+            }, client.COOLDOWN_SECONDS * 1000); // after ... seconds
+        }
+
         
-        await interaction.reply({ embeds: [ServerInfoEmbed]});
 
         //log into file
         const content = '\nserverinfo command executed by '+ interaction.member.user.username + ' at ' + new Date().toLocaleString();
