@@ -16,8 +16,13 @@ module.exports = {
         }
         else
         {
-            let data = await fetch
-            ("http://meme-api.herokuapp.com/gimme/memes").then(res => res.json())
+            let data
+
+            do
+            {
+                data = await fetch
+                ("https://meme-api.com/gimme/memes").then(res => res.json())
+            } while(data.nsfw === "false");
 
             const MemeEmbed = new MessageEmbed()
                 .setColor('RANDOM')

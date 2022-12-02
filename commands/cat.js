@@ -17,7 +17,7 @@ module.exports = {
         else
         {
             let data = await fetch
-            ("http://meme-api.herokuapp.com/gimme/cats").then(res => res.json())
+            ("https://meme-api.com/gimme/catpics").then(res => res.json())
 
             const CatEmbed = new MessageEmbed()
                 .setColor('GREEN')
