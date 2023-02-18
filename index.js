@@ -31,12 +31,12 @@ for(const file of commandFiles){
 
 // create cooldown for commands
 client.cooldowns = new Collection();
-client.COOLDOWN_SECONDS = 10;
+client.COOLDOWN_SECONDS = 5;
 
 // when ready
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity("the server activity", {
+    client.user.setActivity("development.", {
         type: "WATCHING",
       });
       fs.writeFile('Logs.txt', '\nset status to watching', { flag: 'a' }, err => {if(err != null) console.log(err)}); //logs status

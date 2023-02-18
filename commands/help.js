@@ -24,10 +24,9 @@ module.exports = {
                 .addField("/ping", "replies with pong and the API latency.")
                 .addField("/meme", "Gets a meme from /r/memes on reddit.")
                 .addField("/cat", "get a cool cat pic from /r/cats.")
-                .addField("/info", "Gives you information about the bot.")
+                .addField("/botinfo", "Gives you information about the bot.")
                 .addField("/serverinfo", "Gives you information about the server.")
-                .addField("/QOTD [input] (Mod Only)", "Allows you to make the question of the day.")
-                .addField("/SOTD [input or yt link] (Mod Only)", "Allows you to make the song of the day.")
+                .addField("/installation", "Shows you how to install the game.")
                 .setTimestamp()
                 .setFooter({text: "Help command."})
         
