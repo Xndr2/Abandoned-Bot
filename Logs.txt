@@ -1,0 +1,256 @@
+
+
+Bot started at 2/19/2023, 1:32:38 PM
+set status to watching
+
+Bot started at 2/19/2023, 1:33:59 PM
+set status to watching
+decide command executed by Xndr at 2/19/2023, 1:34:37 PM
+
+Bot started at 2/19/2023, 1:37:12 PM
+set status to watching
+
+Bot started at 2/19/2023, 1:37:44 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 1:37:45 PM
+info command executed by Xndr at 2/19/2023, 1:37:55 PM
+
+Bot started at 2/19/2023, 1:57:47 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 1:57:48 PM
+
+Bot started at 2/19/2023, 1:58:34 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 1:58:35 PM
+
+Bot started at 2/19/2023, 2:00:13 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:00:14 PM
+decide command executed by Xndr at 2/19/2023, 2:00:24 PM
+
+Bot started at 2/19/2023, 2:04:08 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:04:09 PM
+
+Bot started at 2/19/2023, 2:05:08 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:05:09 PM
+
+Bot started at 2/19/2023, 2:07:53 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:07:54 PM
+
+Bot started at 2/19/2023, 2:08:20 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:08:21 PM
+
+Bot started at 2/19/2023, 2:26:45 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:26:46 PM
+
+Bot started at 2/19/2023, 2:29:19 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:29:20 PM
+decide command executed by Xndr at 2/19/2023, 2:29:24 PM
+
+Bot started at 2/19/2023, 2:30:25 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:30:26 PM
+
+Bot started at 2/19/2023, 2:32:53 PM
+set status to watching
+Succesfully registered commands locally. 2/19/2023, 2:32:54 PM
+
+Bot started at 2/23/2023, 10:09:28 PM
+set status to watching
+
+Bot started at 2/23/2023, 10:10:02 PM
+set status to watching
+
+Bot started at 2/23/2023, 10:10:48 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:10:49 PM
+
+Bot started at 2/23/2023, 10:13:24 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:13:25 PM
+decide command executed by Xndr at 2/23/2023, 10:13:39 PM
+
+Bot started at 2/23/2023, 10:17:51 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:17:52 PM
+decide command executed by Xndr at 2/23/2023, 10:18:24 PM
+
+Bot started at 2/23/2023, 10:18:59 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:19:00 PM
+
+Bot started at 2/23/2023, 10:20:32 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:20:33 PM
+
+Bot started at 2/23/2023, 10:20:58 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:20:59 PM
+decide command executed by Xndr at 2/23/2023, 10:21:02 PM
+
+Bot started at 2/23/2023, 10:22:44 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:22:45 PM
+decide command executed by Xndr at 2/23/2023, 10:22:47 PM
+
+Bot started at 2/23/2023, 10:27:46 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:27:47 PM
+decide command executed by Xndr at 2/23/2023, 10:28:26 PM
+
+Bot started at 2/23/2023, 10:28:39 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:28:40 PM
+decide command executed by Xndr at 2/23/2023, 10:28:44 PM
+
+Bot started at 2/23/2023, 10:30:33 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:30:34 PM
+decide command executed by Xndr at 2/23/2023, 10:30:40 PM
+
+Bot started at 2/23/2023, 10:31:53 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:31:54 PM
+
+Bot started at 2/23/2023, 10:33:26 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:33:27 PM
+
+Bot started at 2/23/2023, 10:34:31 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:34:32 PM
+
+Bot started at 2/23/2023, 10:35:06 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:35:07 PM
+
+Bot started at 2/23/2023, 10:40:13 PM
+set status to watching
+Succesfully registered commands locally. 2/23/2023, 10:40:14 PM
+
+Bot started at 2/24/2023, 7:07:01 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:07:02 PM
+
+Bot started at 2/24/2023, 7:13:23 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:13:24 PM
+
+Bot started at 2/24/2023, 7:14:23 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:14:24 PM
+decide command executed by Xndr at 2/24/2023, 7:14:26 PM
+
+Bot started at 2/24/2023, 7:16:13 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:16:14 PM
+decide command executed by Xndr at 2/24/2023, 7:16:19 PM
+
+Bot started at 2/24/2023, 7:17:45 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:17:46 PM
+decide command executed by Xndr at 2/24/2023, 7:17:49 PM
+
+Bot started at 2/24/2023, 7:18:55 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:18:56 PM
+decide command executed by Xndr at 2/24/2023, 7:18:58 PM
+
+Bot started at 2/24/2023, 7:19:36 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:19:38 PM
+decide command executed by Xndr at 2/24/2023, 7:19:42 PM
+
+Bot started at 2/24/2023, 7:21:00 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:21:01 PM
+decide command executed by Xndr at 2/24/2023, 7:21:03 PM
+
+Bot started at 2/24/2023, 7:22:42 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:22:43 PM
+decide command executed by Xndr at 2/24/2023, 7:22:46 PM
+
+Bot started at 2/24/2023, 7:26:31 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:26:32 PM
+decide command executed by Xndr at 2/24/2023, 7:26:50 PM
+
+Bot started at 2/24/2023, 7:27:28 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:27:29 PM
+decide command executed by Xndr at 2/24/2023, 7:27:33 PM
+
+Bot started at 2/24/2023, 7:28:05 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:28:06 PM
+decide command executed by Xndr at 2/24/2023, 7:28:11 PM
+
+Bot started at 2/24/2023, 7:30:16 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:30:17 PM
+decide command executed by Xndr at 2/24/2023, 7:30:21 PM
+
+Bot started at 2/24/2023, 7:30:34 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:30:35 PM
+decide command executed by Xndr at 2/24/2023, 7:30:43 PM
+
+Bot started at 2/24/2023, 7:35:37 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:35:38 PM
+decide command executed by Xndr at 2/24/2023, 7:35:49 PM
+
+Bot started at 2/24/2023, 7:39:02 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:39:03 PM
+decide command executed by Xndr at 2/24/2023, 7:39:14 PM
+
+Bot started at 2/24/2023, 7:40:00 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:40:01 PM
+
+Bot started at 2/24/2023, 7:40:33 PM
+set status to watching
+Succesfully registered commands locally. 2/24/2023, 7:40:34 PM
+decide command executed by Xndr at 2/24/2023, 7:40:49 PM
+
+Bot started at 2/26/2023, 9:55:21 PM
+set status to watching
+Succesfully registered commands locally. 2/26/2023, 9:55:23 PM
+
+Bot started at 3/25/2023, 7:50:35 PM
+set status to watching
+
+Bot started at 3/25/2023, 7:51:39 PM
+set status to watching
+Succesfully registered commands locally. 3/25/2023, 7:51:40 PM
+
+Bot started at 3/25/2023, 7:52:17 PM
+set status to watching
+Succesfully registered commands locally. 3/25/2023, 7:52:17 PM
+
+Bot started at 3/25/2023, 7:55:14 PM
+set status to watching
+Succesfully registered commands locally. 3/25/2023, 7:55:15 PM
+diy command executed by Xndr at 3/25/2023, 7:55:18 PM
+
+Bot started at 3/25/2023, 8:00:47 PM
+set status to watching
+Succesfully registered commands locally. 3/25/2023, 8:00:48 PM
+
+Bot started at 3/25/2023, 8:02:18 PM
+set status to watching
+Succesfully registered commands locally. 3/25/2023, 8:02:19 PM
+diy command executed by Xndr at 3/25/2023, 8:02:26 PM
+
+Bot started at 3/25/2023, 8:02:49 PM
+set status to watching
+Succesfully registered commands locally. 3/25/2023, 8:02:50 PM
+diy command executed by Xndr at 3/25/2023, 8:02:53 PM
