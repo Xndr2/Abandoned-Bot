@@ -6,8 +6,8 @@ const fs = require("fs");
 module.exports = {
     data: new SlashCommandBuilder().setName("botinfo").setDescription("Gives you information about the bot.").setDMPermission(false),
 
-    async execute(interaction, client) {
-        if (client.cooldowns.has(interaction.user.id)) {
+    async execute(interaction) {
+        if (interaction.client.cooldowns.has(interaction.user.id)) {
             interaction.reply({
                 content: "Please wait for the cooldown to end!",
                 ephemeral: true,
@@ -17,23 +17,23 @@ module.exports = {
                 .setColor("BLURPLE")
                 .setTitle("Information about the bot.")
                 .setDescription("This bot is made by Xndr for [Abandoned](https://discord.gg/CAhVGsAW7H)")
-                .addField("Version:", "1.0", true)
+                .addField("Version:", "1.3", true)
                 .addField("Author:", "Xndr", true)
                 .addField("Global Command Cooldown:", "5 seconds")
-                .addField("Guilds I'm in:", `${client.guilds.cache.size}`)
-                .addField("Users in my chache:", `${client.users.cache.size}`)
-                .addField("Channels I have access to:", `${client.channels.cache.size}`)
-                .addField("Commands I can run:", `${client.commands.size}`)
+                .addField("Guilds I'm in:", `${interaction.client.guilds.cache.size}`)
+                .addField("Users in my chache:", `${interaction.client.users.cache.size}`)
+                .addField("Channels I have access to:", `${interaction.client.channels.cache.size}`)
+                .addField("Commands I can run:", `${interaction.client.commands.size}`)
                 .setTimestamp()
-                .setFooter({ text: "info command." });
+                .setFooter({ text: "Info command." });
 
             await interaction.reply({ embeds: [InfoEmbed] });
 
             // set cooldown
-            client.cooldowns.set(interaction.user.id, true);
+            interaction.client.cooldowns.set(interaction.user.id, true);
             setTimeout(() => {
-                client.cooldowns.delete(interaction.user.id); //clear cooldown
-            }, client.COOLDOWN_SECONDS * 1000); // after ... seconds
+                interaction.client.cooldowns.delete(interaction.user.id); //clear cooldown
+            }, interaction.client.COOLDOWN_SECONDS * 1000); // after ... seconds
         }
 
         //log into file
