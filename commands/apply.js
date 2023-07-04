@@ -48,10 +48,10 @@ module.exports = {
         await interaction.reply({ embeds: [ApplyEmbed], components: [row] });
 
         // set cooldown
-        client.cooldowns.set(interaction.user.id, true);
+        interaction.client.cooldowns.set(interaction.user.id, true);
         setTimeout(() => {
-            client.cooldowns.delete(interaction.user.id); //clear cooldown
-        }, client.COOLDOWN_SECONDS * 1000); // after ... seconds
+            interaction.client.cooldowns.delete(interaction.user.id); //clear cooldown
+        }, interaction.client.COOLDOWN_SECONDS * 1000); // after ... seconds
 
         //log into file
         const content = "\nhelp command executed by " + interaction.member.user.username + " at " + new Date().toLocaleString();
