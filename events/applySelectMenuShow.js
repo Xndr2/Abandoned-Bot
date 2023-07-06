@@ -1,6 +1,6 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v10");
-const { MessageEmbed, User, Guild, MessageActionRow, MessageSelectMenu } = require("discord.js");
+const { MessageEmbed, User, Guild, MessageActionRow, MessageSelectMenu, Modal, TextInputComponent } = require("discord.js");
 
 module.exports = {
     name: "interactionCreate",

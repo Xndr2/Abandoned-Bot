@@ -58,35 +58,4 @@ for (const file of eventFiles) {
 client.cooldowns = new Collection();
 client.COOLDOWN_SECONDS = 5;
 
-//call commands
-client.on("interactionCreate", async (interaction) => {
-    if (interaction.isModalSubmit()) {
-        const guild = interaction.guild;
-        const ApplyEmbed = new MessageEmbed()
-            .setColor("GOLD")
-            .setTitle("New application!")
-            .setThumbnail(`${guild.iconURL()}`)
-            .setDescription("user information:")
-            .addField("Username", interaction.member.user.username)
-            .addField("Applying for", interaction.customId)
-            .addField(interaction.components[0].components[0].customId, interaction.components[0].components[0].value)
-            .addField(interaction.components[1].components[0].customId, interaction.components[1].components[0].value)
-            .addField(interaction.components[2].components[0].customId, interaction.components[2].components[0].value)
-            .setTimestamp()
-            .setFooter({ text: interaction.member.user.username });
-        //DM Xndr
-        interaction.client.users.fetch("434760513377927188", false).then((user) => {
-            user.send({ embeds: [ApplyEmbed] });
-        });
-        //DM Charles
-        interaction.client.users.fetch("685906051656057007", false).then((user) => {
-            user.send({ embeds: [ApplyEmbed] });
-        });
-        interaction.reply({
-            content: "Your submission was received successfully!",
-            ephemeral: true,
-        });
-    }
-});
-
 client.login(process.env.TOKEN);
