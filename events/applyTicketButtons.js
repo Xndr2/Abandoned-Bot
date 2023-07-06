@@ -9,14 +9,20 @@ module.exports = {
         if (interaction.isButton()) {
             try {
                 if (interaction.customId === "closeChannel") {
-                    // close ticket
-                    interaction.reply("Closing Application! Please stand by...");
-                    setTimeout(() => {
-                        // delete channel
-                        const fetchedChannel = interaction.guild.channels.cache.get(interaction.channel.id);
-                        fetchedChannel.delete();
-                        return interaction.deleteReply().catch(() => {});
-                    }, 5000);
+                    if (interaction.member.roles.cache.has("1067511185123057806")) {
+                        // close ticket
+                        await interaction.reply("Closing Application! Please stand by...");
+                        setTimeout(() => {
+                            // delete channel
+                            const fetchedChannel = interaction.guild.channels.cache.get(interaction.channel.id);
+                            fetchedChannel.delete();
+                        }, 5000);
+                    } else {
+                        await interaction.reply({ content: "You don't have the right permission to do this!", ephemeral: true });
+                        setTimeout(() => {
+                            return interaction.deleteReply().catch(() => {});
+                        }, 2000);
+                    }
                 }
             } catch (err) {
                 console.error(err);
@@ -28,7 +34,7 @@ module.exports = {
                         { name: "Error code:", value: `${err}` },
                         {
                             name: "Interaction:",
-                            value: interaction,
+                            value: "Close Button",
                         },
                         {
                             name: "User:",

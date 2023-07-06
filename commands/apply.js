@@ -8,8 +8,8 @@ module.exports = {
     async execute(interaction) {
         const ApplyEmbed = new MessageEmbed()
             .setColor("WHITE")
-            .setTitle("You want to help make Abandoned a reality?")
-            .setDescription("Select the team you want to apply for in the button below.")
+            .setTitle("Do you want to help make *Abandoned* a reality?")
+            .setDescription("**```Select the team you want to apply for in the button below.```**")
             .setTimestamp();
 
         const row = new MessageActionRow().addComponents(

@@ -36,10 +36,13 @@ module.exports = {
                     .catch((err) => {
                         console.log(err);
                     });
-                interaction.reply({
+                await interaction.reply({
                     content: `Your application can be found at the top of the channel list.`,
                     ephemeral: true,
                 });
+                setTimeout(() => {
+                    return interaction.deleteReply().catch(() => {});
+                }, 10000);
             } catch (err) {
                 console.error(err);
                 const ErrorEmbed = new MessageEmbed()
