@@ -1,47 +1,42 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed, MessageButton, MessageActionRow, User, Guild } = require("discord.js");
-const fetch = require("node-fetch");
-const fs = require("fs");
+//const {  } = require("@discordjs/builders");
+const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder } = require("discord.js");
+const { User, Guild } = require("discord.js");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fs = import("fs");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("cat").setDescription("gets a photo of a cat from /r/cats on reddit.").setDMPermission(false),
+    data: new SlashCommandBuilder()
+        .setName("cat")
+        .setDescription("Gets a photo of a cat from /r/cats on reddit.")
+        .setDMPermission(false),
 
     async execute(interaction) {
-        if (interaction.client.cooldowns.has(interaction.user.id)) {
-            interaction.reply({
-                content: "Please wait for the cooldown to end!",
-                ephemeral: true,
-            });
-        } else {
-            let data = await fetch("https://meme-api.com/gimme/catpics").then((res) => res.json());
-
-            const CatEmbed = new MessageEmbed()
-                .setColor("GREEN")
-                .setTitle(data.title)
-                .setURL(data.postLink)
-                .setImage(data.url)
-                .setDescription(data.ups + " Upvotes | by " + data.author)
-                .setTimestamp()
-                .setFooter({ text: "Cat command." });
-
-            const button = new MessageActionRow().addComponents(new MessageButton().setCustomId("catbutton").setLabel("I want another one").setStyle("SUCCESS"));
-
-            await interaction.reply({ embeds: [CatEmbed], components: [button] });
-
-            // set cooldown
-            interaction.client.cooldowns.set(interaction.user.id, true);
-            setTimeout(() => {
-                interaction.client.cooldowns.delete(interaction.user.id); //clear cooldown
-            }, interaction.client.COOLDOWN_SECONDS * 1000); // after ... seconds
+        let isNSFW = true;
+        let data;
+        while(isNSFW) {
+            data = await fetch("https://meme-api.com/gimme/catpics").then((res) => res.json());
+            isNSFW = data.nsfw
         }
-        //log into file
-        const content = "\ncat command executed by " + interaction.member.user.username + " at " + new Date().toLocaleString();
-        const path = "Logs.txt";
-        fs.writeFile(path, content, { flag: "a" }, (err) => {
-            //append to file write at end of file
-            if (err) {
-                console.error(err);
-            }
-        });
-    },
+
+        const CatEmbed = new EmbedBuilder()
+            .setColor("Green")
+            .setTitle(data.title)
+            .setURL(data.postLink)
+            .setImage(data.url)
+            .setDescription(data.ups + " Upvotes | by " + data.author)
+            .setTimestamp()
+            .setFooter({ text: `Cat command | Requested by ${interaction.member.user.username}` });
+
+        const NextButton = new ButtonBuilder()
+            .setCustomId("cat")
+            .setLabel("Next Cat Pic")
+            .setStyle(ButtonStyle.Success)
+
+        const row = new ActionRowBuilder()
+            .addComponents(NextButton);
+        
+        //const button = new MessageActionRow().addComponents(new MessageButton().setCustomId("catbutton").setLabel("I want another one").setStyle("SUCCESS"));
+
+        await interaction.reply({ embeds: [CatEmbed], components: [row] });
+    }
 };

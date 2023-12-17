@@ -1,35 +1,19 @@
 {
-  "name": "tflbot",
+  "name": "abandoned-bot-v2",
   "version": "1.0.0",
-  "description": "Discord Bot For TFL Community",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Xndr2/TFLBot.git"
-  },
   "author": "Xndr",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Xndr2/TFLBot/issues"
-  },
-  "homepage": "https://github.com/Xndr2/TFLBot#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.15.0",
-    "@discordjs/rest": "^0.5.0",
-    "@discordjs/voice": "^0.14.0",
-    "@octokit/core": "^4.2.1",
-    "discord-api-types": "^0.36.1",
-    "discord.js": "^13.16.0",
-    "discordjs-ytdl": "^2.2.0",
-    "dotenv": "^16.0.1",
-    "git": "^0.1.5",
-    "undici": "^5.22.1",
-    "youtube-search": "^1.1.6"
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "eslint": "^8.55.0"
   }
 }

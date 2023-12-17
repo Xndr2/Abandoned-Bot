@@ -1,33 +1,12 @@
-//setup
-require("dotenv").config();
-const fs = require("fs");
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v10");
-const { MessageEmbed, Client, Intents, Collection, partials, Interaction, Guild, Collector, Modal, TextInputComponent, MessageActionRow } = require("discord.js");
-const { Search } = require("youtube-search");
-const { Console } = require("console");
-const internal = require("stream");
-const path = require("path");
-const client = new Client({
-    intents: 32767,
-});
+// Require the necessary discord.js classes
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { REST, Routes } = require('discord.js');
+const { log } = require('node:console');
+const fs = require('node:fs');
+const path = require('node:path');
+require('dotenv').config();
 
-// for making api calls to github
-const { Octokit } = require("@octokit/core");
-const octokit = new Octokit({
-    auth: process.env.OCTOKIT_TOKEN,
-});
-
-fs.writeFile(
-    "Logs.txt",
-    "\n\nBot started at " + new Date().toLocaleString(),
-    {
-        flag: "a",
-    },
-    (err) => {
-        if (err != null) console.log(err);
-    }
-); //logs the start of the bot
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 // set up commands
 //get commands from folder
@@ -50,12 +29,8 @@ for (const file of eventFiles) {
     if (event.once) {
         client.once(event.name, (...args) => event.execute(...args, commands));
     } else {
-        client.on(event.name, (...args) => event.execute(...args, octokit));
+        client.on(event.name, (...args) => event.execute(...args));
     }
 }
 
-// create cooldown for commands
-client.cooldowns = new Collection();
-client.COOLDOWN_SECONDS = 5;
-
-client.login(process.env.TOKEN);
+client.login(process.env.token);

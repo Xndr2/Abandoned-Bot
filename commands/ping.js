@@ -1,36 +1,24 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageActionRow, MessageButton } = require("discord.js");
-const fs = require("fs");
+const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
+const { User, Guild } = require("discord.js");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("ping").setDescription("reply with pong").setDMPermission(false),
+	data: new SlashCommandBuilder()
+		.setName('ping')
+		.setDescription('Check how fast I really am.')
+		.setDMPermission(false),
+		
+	async execute(interaction) {
+		const PingEmbed = new EmbedBuilder()
+            .setColor("Blurple")
+            .setTitle("PONG 🏓")
+            .setDescription("Bot Status:")
+			.addFields(
+				{ name: "Host Latency:", value: `${Date.now() - interaction.createdTimestamp}ms` },
+				{ name: "Discord API Latency:", value: `${Math.round(interaction.client.ws.ping)}ms` }
+			)
+            .setTimestamp()
+            .setFooter({ text: `Ping command | Requested by ${interaction.member.user.username}` });
 
-    async execute(interaction) {
-        if (interaction.client.cooldowns.has(interaction.user.id)) {
-            interaction.reply({
-                content: "Please wait for the cooldown to end!",
-                ephemeral: true,
-            });
-        } else {
-            await interaction.reply({
-                content: `PONG 🏓: Host Latency is ${Date.now() - interaction.createdTimestamp}ms.\nDiscord API Latency is ${Math.round(interaction.client.ws.ping)}ms`,
-            });
-
-            // set cooldown
-            interaction.client.cooldowns.set(interaction.user.id, true);
-            setTimeout(() => {
-                interaction.client.cooldowns.delete(interaction.user.id); //clear cooldown
-            }, interaction.client.COOLDOWN_SECONDS * 1000); // after ... seconds
-        }
-
-        //log into file
-        const content = "\nping command executed by " + interaction.member.user.username + " at " + new Date().toLocaleString();
-        const path = "Logs.txt";
-        fs.writeFile(path, content, { flag: "a" }, (err) => {
-            //append to file write at end of file
-            if (err) {
-                console.error(err);
-            }
-        });
-    },
+        await interaction.reply({ embeds: [PingEmbed] });
+	},
 };

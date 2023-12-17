@@ -1,72 +1,36 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v10");
-const { Collection } = require("discord.js");
+const { Collection, ActivityType  } = require("discord.js");
 const fs = require("fs");
 
 module.exports = {
     name: "ready",
     once: true,
     execute(client, commands) {
-        console.log(`Logged in as ${client.user.tag}!`);
-        client.user.setActivity("development.", {
-            type: "WATCHING",
-        });
-        fs.writeFile(
-            "Logs.txt",
-            "\nset status to watching",
-            {
-                flag: "a",
-            },
-            (err) => {
-                if (err != null) console.log(err);
-            }
-        ); //logs status
+        console.log(`Ready! Logged in as ${client.user.tag}`);
 
-        //register commands
-        const CLIENT_ID = client.user.id;
-        const rest = new REST({
-            //make new rest (enable commands)
-            version: "10",
-        }).setToken(process.env.TOKEN);
+        client.user.setActivity('development.', { type: ActivityType.Watching });
+        client.user.setStatus('dnd');
+
+        // Construct and prepare an instance of the REST module
+        const rest = new REST({version: "10"}).setToken(process.env.token);
 
         (async () => {
             try {
-                if (process.env.BUILD === "production") {
+                if (process.env.build === "production") {
                     // get guild
-                    const guild = await client.guilds.cache.get(process.env.GUILD_ID);
+                    const guild = await client.guilds.cache.get(process.env.live_guild_id);
                     guild.commands.set([]);
-                    await rest.put(Routes.applicationCommands(CLIENT_ID), {
+                    await rest.put(Routes.applicationCommands(process.env.client_id), {
                         body: commands,
                     });
-                    console.log("Succesfully registered commands globally.");
-                    //logs commands globally
-                    fs.writeFile(
-                        "Logs.txt",
-                        "\nSuccesfully registered commands globally. " + new Date().toLocaleString(),
-                        {
-                            flag: "a",
-                        },
-                        (err) => {
-                            if (err != null) console.log(err);
-                        }
-                    );
+                    console.log("Successfully registered commands globally.");
                 } else {
-                    client.application.commands.set([]);
-                    await rest.put(Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID), {
+                    //client.application.commands.set([]);
+                    await rest.put(Routes.applicationGuildCommands(process.env.client_id, process.env.testing_guild_id), {
                         body: commands,
                     });
-                    console.log("Succesfully registered commands locally.");
-                    //logs commands locally
-                    fs.writeFile(
-                        "Logs.txt",
-                        "\nSuccesfully registered commands locally. " + new Date().toLocaleString(),
-                        {
-                            flag: "a",
-                        },
-                        (err) => {
-                            if (err != null) console.log(err);
-                        }
-                    );
+                    console.log("Successfully registered commands locally.");
                 }
             } catch (err) {
                 if (err) console.error(err); //if valid error

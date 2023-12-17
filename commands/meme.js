@@ -1,52 +1,40 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed, MessageButton, MessageActionRow, User, Guild } = require("discord.js");
-const fetch = require("node-fetch");
-const fs = require("fs");
+//const {  } = require("@discordjs/builders");
+const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder } = require("discord.js");
+const { User, Guild } = require("discord.js");
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fs = import("fs");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("meme").setDescription("gets a meme from /r/memes on reddit.").setDMPermission(false),
+    data: new SlashCommandBuilder()
+        .setName("meme")
+        .setDescription("Shows a funny meme from /r/memes on reddit.")
+        .setDMPermission(false),
 
     async execute(interaction) {
-        if (interaction.client.cooldowns.has(interaction.user.id)) {
-            interaction.reply({
-                content: "Please wait for the cooldown to end!",
-                ephemeral: true,
-            });
-        } else {
-            let data;
-
-            do {
-                data = await fetch("https://meme-api.com/gimme/memes").then((res) => res.json());
-            } while (data.nsfw === "false");
-
-            const MemeEmbed = new MessageEmbed()
-                .setColor("RANDOM")
-                .setTitle(data.title)
-                .setURL(data.postLink)
-                .setImage(data.url)
-                .setDescription(data.ups + " Upvotes | by " + data.author)
-                .setTimestamp()
-                .setFooter({ text: "Meme command." });
-
-            const row = new MessageActionRow().addComponents(new MessageButton().setCustomId("memebutton").setLabel("New Meme").setStyle("SUCCESS"));
-
-            await interaction.reply({ embeds: [MemeEmbed], components: [row] });
-
-            // set cooldown
-            interaction.client.cooldowns.set(interaction.user.id, true);
-            setTimeout(() => {
-                interaction.client.cooldowns.delete(interaction.user.id); //clear cooldown
-            }, interaction.client.COOLDOWN_SECONDS * 1000); // after ... seconds
+        let isNSFW = true;
+        let data;
+        while(isNSFW) {
+            data = await fetch("https://meme-api.com/gimme/memes").then((res) => res.json());
+            isNSFW = data.nsfw
         }
 
-        //log into file
-        const content = "\nmeme command executed by " + interaction.member.user.username + " at " + new Date().toLocaleString();
-        const path = "Logs.txt";
-        fs.writeFile(path, content, { flag: "a" }, (err) => {
-            //append to file write at end of file
-            if (err) {
-                console.error(err);
-            }
-        });
-    },
+        const MemeEmbed = new EmbedBuilder()
+            .setColor("Green")
+            .setTitle(data.title)
+            .setURL(data.postLink)
+            .setImage(data.url)
+            .setDescription("<:Upvote:1184212705440174141> " + data.ups + " | by " + data.author)
+            .setTimestamp()
+            .setFooter({ text: `Meme command | Requested by ${interaction.member.user.username}` });
+
+        const NextButton = new ButtonBuilder()
+            .setCustomId("meme")
+            .setLabel("Next Meme")
+            .setStyle(ButtonStyle.Success)
+
+        const row = new ActionRowBuilder()
+            .addComponents(NextButton);
+
+        await interaction.reply({ embeds: [MemeEmbed], components: [row] });
+    }
 };
