@@ -20,7 +20,7 @@ module.exports = {
                 + "\n[For Admins: use `/close` to close this ticket.]")
             .setTimestamp();
 
-        if(interaction.components) {
+        if (interaction.components) {
             ConfirmEmbed.addFields(
                 { name: "Username:", value: interaction.member.user.username },
                 { name: "Applying for:", value: team },
@@ -37,17 +37,18 @@ module.exports = {
         const UserEmbed = new EmbedBuilder()
             .setColor("Gold")
             .setTitle("Thank you for your application!")
-            .setDescription("Sit back while we review the answers you send in. You can find your ticket")
+            .setDescription("Sit back while we review the answers you send in.\nYou can find your ticket:")
             .setTimestamp();
 
         // create channel
         const guild = interaction.guild;
         var id;
-        if(process.env.build === "production") {
+        if (process.env.build === "production") {
             id = process.env.live_ticket_category_id;
         } else {
             id = process.env.testing_ticket_category_id;
         }
+
 
         guild.channels.create({
             name: `ticket-${team}-${interaction.member.user.username}`,
@@ -63,11 +64,12 @@ module.exports = {
                 }
             ],
             parent: id,
-        }).then(channel => {
+        }).then(async channel => {
             channel.send({ embeds: [ConfirmEmbed] });
-            UserEmbed.addFields({ name: "Here", value: `<#${channel.id}>`});
-            interaction.user.send({ embeds: [UserEmbed] });
+            UserEmbed.addFields({ name: "Here", value: `<#${channel.id}>` });
+            await interaction.reply({ embeds: [UserEmbed], ephemeral: true });
+            //interaction.user.send({ embeds: [UserEmbed] });
         });
-        await interaction.reply({ content: "Ticket made. Check your direct messages if you have them enabled.", ephemeral: true});
+        //await interaction.reply({ content: "Ticket made. Check your direct messages if you have them enabled.", ephemeral: true });
     },
 };

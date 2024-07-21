@@ -11,7 +11,7 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
     async execute(interaction) {
-        if(interaction.channel.name.includes("ticket")) {
+        if (interaction.channel.name.includes("ticket")) {
             const CloseEmbed = new EmbedBuilder()
                 .setColor("Red")
                 .setTitle("Ticket Closed.")
@@ -24,7 +24,8 @@ module.exports = {
 
             // get channel
             var id;
-            if(process.env.build === "production") {
+            // live or test
+            if (process.env.build === "live") {
                 id = process.env.live_logs_id;
             } else {
                 id = process.env.testing_logs_id;

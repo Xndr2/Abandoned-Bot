@@ -9,11 +9,12 @@
   "author": "Xndr",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.14.1",
+    "discord.js": "^14.15.2",
     "dotenv": "^16.3.1",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.8",
     "eslint": "^8.55.0"
   }
 }

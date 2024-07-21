@@ -1,5 +1,5 @@
-const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, 
-    SlashCommandBuilder, PermissionFlagsBits, ModalBuilder, TextInputBuilder, 
+const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle,
+    SlashCommandBuilder, PermissionFlagsBits, ModalBuilder, TextInputBuilder,
     TextInputStyle, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, Team } = require("discord.js");
 const { User, Guild } = require("discord.js");
 const fs = require("fs");
@@ -13,7 +13,7 @@ module.exports = {
 
     async execute(interaction) {
         var title;
-        if(interaction.values) {
+        if (interaction.values) {
             title = interaction.values[0];
         } else {
             title = "undefined."
@@ -22,31 +22,31 @@ module.exports = {
         const TeamModal = new ModalBuilder()
             .setTitle(`Application for ${title}`)
             .setCustomId(`team_modal_${title}`);
-            
+
         const firstQuestion = new TextInputBuilder()
-            .setCustomId("first_question")
+            .setCustomId("Do you have any past experiences?")
             .setLabel("Do you have any past experiences?")
             .setStyle(TextInputStyle.Short)
             .setRequired(true);
-        
+
         const secondQuestion = new TextInputBuilder()
-            .setCustomId("second_question")
+            .setCustomId("If so, please elaborate.")
             .setLabel("If so, please elaborate.")
             .setStyle(TextInputStyle.Paragraph)
             .setRequired(false);
-        
+
         const thirdQuestion = new TextInputBuilder()
-            .setCustomId("third_question")
+            .setCustomId("Do you understand that applying is voluntary?")
             .setLabel("Do you understand that applying is voluntary?")
             .setStyle(TextInputStyle.Short)
             .setRequired(true);
-            
+
         const firstRow = new ActionRowBuilder()
             .addComponents(firstQuestion);
-        
+
         const secondRow = new ActionRowBuilder()
             .addComponents(secondQuestion);
-        
+
         const thirdRow = new ActionRowBuilder()
             .addComponents(thirdQuestion);
 
