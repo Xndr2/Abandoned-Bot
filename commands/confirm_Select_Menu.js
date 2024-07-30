@@ -67,7 +67,7 @@ module.exports = {
         }).then(async channel => {
             channel.send({ embeds: [ConfirmEmbed] });
             UserEmbed.addFields({ name: "Here", value: `<#${channel.id}>` });
-            await interaction.reply({ embeds: [UserEmbed], ephemeral: true });
+            await interaction.editReply({ content: "", embeds: [UserEmbed], ephemeral: true });
             //interaction.user.send({ embeds: [UserEmbed] });
         });
         //await interaction.reply({ content: "Ticket made. Check your direct messages if you have them enabled.", ephemeral: true });

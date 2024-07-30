@@ -1,7 +1,7 @@
 //const {  } = require("@discordjs/builders");
 const { ActionRowBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder } = require("discord.js");
 const { User, Guild } = require("discord.js");
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const fs = import("fs");
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     async execute(interaction) {
         let isNSFW = true;
         let data;
-        while(isNSFW) {
+        while (isNSFW) {
             data = await fetch("https://meme-api.com/gimme/catpics").then((res) => res.json());
             isNSFW = data.nsfw
         }
@@ -34,9 +34,9 @@ module.exports = {
 
         const row = new ActionRowBuilder()
             .addComponents(NextButton);
-        
+
         //const button = new MessageActionRow().addComponents(new MessageButton().setCustomId("catbutton").setLabel("I want another one").setStyle("SUCCESS"));
 
-        await interaction.reply({ embeds: [CatEmbed], components: [row] });
+        await interaction.editReply({ embeds: [CatEmbed], components: [row] });
     }
 };

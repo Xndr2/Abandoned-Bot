@@ -97,15 +97,15 @@ module.exports = {
         const title = interaction.member.user.username + " asked: " + inputStr;
         if (title.length < 256 && inputStr.length <= 200) {
             const DecideEmbed = new EmbedBuilder()
-            .setColor("NotQuiteBlack")
-            .setTitle(title)
-            .setDescription(randomMessage)
-            .setTimestamp()
-            .setFooter({ text: `Decide command | Requested by ${interaction.member.user.username}` });
+                .setColor("NotQuiteBlack")
+                .setTitle(title)
+                .setDescription(randomMessage)
+                .setTimestamp()
+                .setFooter({ text: `Decide command | Requested by ${interaction.member.user.username}` });
 
-            await interaction.reply({ embeds: [DecideEmbed] });
+            await interaction.editReply({ embeds: [DecideEmbed] });
         } else {
-            await interaction.reply({ content: "Please limit your question to 200 characters max.", ephemeral: true, })
+            await interaction.editReply({ content: "Please limit your question to 200 characters max.", ephemeral: true, })
         }
     },
 };

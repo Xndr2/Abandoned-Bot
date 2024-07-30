@@ -34,12 +34,12 @@ module.exports = {
             const channel = interaction.client.channels.cache.get(id);
             channel.send({ embeds: [CloseEmbed] });
 
-            await interaction.reply("closing channel...")
+            await interaction.editReply("closing channel...")
             setTimeout(() => {
                 interaction.channel.delete();
             }, 3000);
         } else {
-            await interaction.reply({ content: "unable to close this channel", ephemeral: true })
+            await interaction.editReply({ content: "unable to close this channel", ephemeral: true })
         }
     }
 };

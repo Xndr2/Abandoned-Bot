@@ -7,23 +7,27 @@ module.exports = {
     name: "interactionCreate",
     once: false,
     execute: async (interaction) => {
+        //await interaction.reply({ content: "Working on it.", ephemeral: true });
         try {
             //make sure interaction is valid command
             if (interaction.isChatInputCommand()) {
+                await interaction.deferReply();
                 const command = interaction.client.commands.get(interaction.commandName);
                 if (!command) return;
                 await command.execute(interaction);
             } else if (interaction.isButton()) {
+                await interaction.deferReply();
                 const command = interaction.client.commands.get(interaction.customId);
                 if (!command) return;
                 await command.execute(interaction);
             } else if (interaction.isStringSelectMenu()) {
-                if(interaction.customId === "team_select") {
+                if (interaction.customId === "team_select") {
                     const command = interaction.client.commands.get("open-select-menu");
                     if (!command) return;
                     await command.execute(interaction);
                 }
             } else if (interaction.isModalSubmit()) {
+                await interaction.reply({ content: "Working on it.", ephemeral: true });
                 if (interaction.customId.includes("team_modal")) {
                     const command = interaction.client.commands.get("confirm-select-menu");
                     if (!command) return;
@@ -31,17 +35,28 @@ module.exports = {
                 }
             }
         } catch (err) {
+            console.log(err);
             const ErrorEmbed = new EmbedBuilder()
                 .setColor("Red")
                 .setTitle("An error has popped up while executing interaction.")
                 .setDescription("Xndr has been informed.")
                 .addFields(
                     { name: "Error:", value: `${err}` },
-                    { name: "User:", value: `${interaction.member.user.username}` },
-                    { name: "Interaction:", value: `${interaction}` }
                 )
                 .setTimestamp()
                 .setFooter({ text: "Error" });
+
+            if (interaction) {
+                ErrorEmbed.addFields(
+                    { name: "User:", value: `${interaction.member.user.username}` },
+                    { name: "Interaction:", value: `${interaction}` }
+                )
+            } else {
+                ErrorEmbed.addFields(
+                    { name: "User:", value: "Unknown" },
+                    { name: "Interaction:", value: "Unknown" }
+                )
+            };
 
             await interaction.reply({
                 embeds: [ErrorEmbed],

@@ -34,6 +34,6 @@ module.exports = {
             HelpEmbed.addFields({ name: "```/reload```", value: "```Reloads the entire bot (WIP)```", inline: true });
         }
 
-        await interaction.reply({ embeds: [HelpEmbed] });
+        await interaction.editReply({ embeds: [HelpEmbed] });
     }
 };

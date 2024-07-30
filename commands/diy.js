@@ -19,6 +19,6 @@ module.exports = {
             .setTimestamp()
             .setFooter({ text: `Cat command | Requested by ${interaction.member.user.username}` });
 
-        await interaction.reply({ embeds: [DiyEmbed] });
+        await interaction.editReply({ embeds: [DiyEmbed] });
     }
 };
