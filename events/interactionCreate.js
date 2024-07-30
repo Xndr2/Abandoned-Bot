@@ -35,7 +35,6 @@ module.exports = {
                 }
             }
         } catch (err) {
-            console.log(err);
             const ErrorEmbed = new EmbedBuilder()
                 .setColor("Red")
                 .setTitle("An error has popped up while executing interaction.")
@@ -46,17 +45,17 @@ module.exports = {
                 .setTimestamp()
                 .setFooter({ text: "Error" });
 
-            if (interaction) {
-                ErrorEmbed.addFields(
-                    { name: "User:", value: `${interaction.member.user.username}` },
-                    { name: "Interaction:", value: `${interaction}` }
-                )
-            } else {
-                ErrorEmbed.addFields(
-                    { name: "User:", value: "Unknown" },
-                    { name: "Interaction:", value: "Unknown" }
-                )
-            };
+            // if (interaction) {
+            //     ErrorEmbed.addFields(
+            //         { name: "User:", value: `${interaction.member.user.username}` },
+            //         { name: "Interaction:", value: `${interaction}` }
+            //     )
+            // } else {
+            //     ErrorEmbed.addFields(
+            //         { name: "User:", value: "Unknown" },
+            //         { name: "Interaction:", value: "Unknown" }
+            //     )
+            // };
 
             await interaction.reply({
                 embeds: [ErrorEmbed],

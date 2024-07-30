@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/ede65e0d-aed0-4086-8e7b-2bb971422aca/resourceGroups/headshotinteractive-bot_group/providers/Microsoft.Web/sites/headshotinteractive-bot",
+    "appService.deploySubpath": "."
+}
