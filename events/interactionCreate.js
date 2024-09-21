@@ -57,7 +57,8 @@ module.exports = {
             //     )
             // };
 
-            await interaction.reply({
+
+            await interaction.editReply({
                 embeds: [ErrorEmbed],
                 ephemeral: true,
             });

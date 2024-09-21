@@ -27,6 +27,11 @@ module.exports = {
                     .setValue("Tester"),
 
                 new StringSelectMenuOptionBuilder()
+                .setLabel("Voice Actor")
+                .setDescription("A voice actor provides vocal performances for characters and dialogue in games.")
+                .setValue("Voice Actor"),
+
+                new StringSelectMenuOptionBuilder()
                     .setLabel("Story Writer")
                     .setDescription("Write the story and in-game lore or get into designing missions.")
                     .setValue("Story Writer"),
