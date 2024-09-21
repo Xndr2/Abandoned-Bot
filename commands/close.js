@@ -33,11 +33,11 @@ module.exports = {
         if (interaction.channel.name.includes("ticket")) {
             // get all messages
             const messages = await interaction.channel.messages.fetch();
-            console.log(messages);
+            const reverseMessages = messages.reverse();
             
             // Write the messages to the log file
             let logData = `${interaction.channel.name}\n`;
-            messages.forEach(message => {
+            reverseMessages.forEach(message => {
                 const logEntry = `[${Date(message.createdTimestamp * 1000)}] by ${message.author.username}: ${message.content}\n`;
                 logData += logEntry;
 
